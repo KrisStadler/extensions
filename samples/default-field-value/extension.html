@@ -26,15 +26,15 @@
       inputEl.addEventListener('input', keyboardInputHandler);
       window.addEventListener('onbeforeunload', unloadHandler);
 
-      var defaultColor = extension.parameters.instance.defaultColor;
-      var defaultColorText = document.createTextNode(defaultColor || 'none');
-      document.querySelector('.default-value').appendChild(defaultColorText);
+      var promotionModelType = extension.parameters.instance.promotionModelType;
+      var promotionModelTypeText = document.createTextNode(promotionModelType || 'none');
+      document.querySelector('.default-value').appendChild(promotionModelTypeText);
 
       var isNewlyCreated = extension.entry.getSys().version < 2;
       var hasNoValue = typeof extension.field.getValue() === 'undefined';
 
       if (isNewlyCreated && hasNoValue) {
-        extension.field.setValue(defaultColor || '');
+        extension.field.setValue(promotionModelType || '');
       }
 
       function valueChangeHandler(value) {
@@ -42,14 +42,6 @@
 
         if (value !== inputEl.value) {
           inputEl.value = value;
-        }
-
-        if (/^#([a-f0-9]{3}){1,2}$/i.test(value)) {
-          extension.field.setInvalid(false);
-          document.querySelector(".cf-form-field").style.borderLeft = "5px solid " + value;
-        } else {
-          extension.field.setInvalid(true);
-          document.querySelector(".cf-form-field").style.borderLeft = "0";
         }
       }
 
