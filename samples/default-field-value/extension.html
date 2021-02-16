@@ -30,12 +30,7 @@
       var promotionModelTypeText = document.createTextNode(promotionModelType || 'none');
       document.querySelector('.default-value').appendChild(promotionModelTypeText);
 
-      var isNewlyCreated = extension.entry.getSys().version < 2;
-      var hasNoValue = typeof extension.field.getValue() === 'undefined';
-
-      if (isNewlyCreated && hasNoValue) {
-        extension.field.setValue(promotionModelType || '');
-      }
+      extension.field.setValue(promotionModelType || '');
 
       function valueChangeHandler(value) {
         value = value || '';
