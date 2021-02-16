@@ -1,17 +1,17 @@
 {
-  "id": "default-field-value",
-  "name": "Default value for a field",
+  "id": "default-promotion-model-type",
+  "name": "Defaults the promotion model type field",
   "srcdoc": "extension.html",
   "fieldTypes": ["Symbol"],
   "parameters": {
     "instance": [
       {
-        "id": "defaultColor",
-        "name": "Default color",
-        "description": "Set which color is the default color",
+        "id": "promotionModelType",
+        "name": "Default promotion model type",
+        "description": "Set the promotion model type",
         "type": "Enum",
-        "options": [{"#0000FF": "blue"}, {"#FFFF00": "yellow"}, {"#FF0000": "red"}],
-        "labels": {"empty": "Choose a color"},
+        "options": [{"promotion": "Promotion"}, {"ongoingPromotion": "Ongoing Promotion"}, {"reloadBonus": "Reload Bonus"}],
+        "labels": {"empty": "Choose a model"},
         "required": true
       }
     ]
